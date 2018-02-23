@@ -3,45 +3,49 @@
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
-
-<div class="row">
-    <div class="span12">
-        <h2>Connexion</h2>
-        <div id="collapseOne" class="accordion-body collapse in">
-            <div class="accordion-inner">
-                <div class="span4">
-                    <h4>Pas encore inscrit ?</h4>
-                    <em>
-                        nous vous invitons à vous inscrire<br />
-                        afin de passer votre commande et de manger équilibré.
-                    </em>
-                    <br /><br />
-                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">S'inscrire</a>
-
+<div class="page-top clearfix">
+    <!--page main heading-->
+    <div class="container">
+        <h1 class="entry-title">Connexion</h1>
+    </div>
+</div>
+<div class="contact-page clearfix animated fadeInLeft ae-animation-fadeInLeft">
+    <div class="container">
+        <!--contact form section-->
+        <div class="blog-page-single clearfix">
+            <article class="page type-page hentry  clearfix">
+                <div class="full-width-contents">
+                    <div class="entry-content">
+                        <h2>Pas encore inscrit ?</h2>
+                        <p>nous vous invitons à vous inscrire afin de passer votre commande <br>et de rester en bonne santé. </p>
+                    </div>
                 </div>
-
-                <div class="span4 offset2">
-                    <h4>Connexion</h4>
-                    <form action="{{ path("fos_user_security_check") }}" method="post">
-                        {% if csrf_token %}
-                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                        {% endif %}
-
-                        <label for="username">{{ 'security.login.username'|trans }}</label>
-                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
-
-                        <label for="password">{{ 'security.login.password'|trans }}</label>
-                        <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
-                        <br>
-                        <input class="btn btn-primary" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-                    </form>
-
-                </div>
+            </article>
+        </div>
+        <div class="clearfix"></div>
+        <!--contact form-->
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-6 ">
+                <form action="{{ path("fos_user_security_check") }}" method="post" class="contact-form">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {% endif %}
+                    <label for="username">{{ 'security.login.username'|trans }}</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+                    
+                    <label for="password">{{ 'security.login.password'|trans }}</label>
+                    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+                    <br>
+                    <input class="btn btn-primary" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                    <img src="images/loader.gif" id="contact-loader" class="ajax-loader" alt="Loading...">
+                </form>
                 <div class="span10">
                     <a href="{{ path('fos_user_resetting_request') }}">Mot de passe perdu ?</a>
                 </div>
             </div>
         </div>
+        <div class="">
+            <a href="{{ path('fos_user_registration_register') }}" class="button alt">S'inscrire</a>
+        </div>
     </div>
 </div>
-
