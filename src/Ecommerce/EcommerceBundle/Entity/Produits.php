@@ -22,19 +22,19 @@ class Produits
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Ecommerce\EcommerceBundle\Entity\Media", cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="Ecommerce\EcommerceBundle\Entity\Media")
      * @ORM\JoinColumn(nullable=false)
      */
     private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Ecommerce\EcommerceBundle\Entity\Tva", cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="Ecommerce\EcommerceBundle\Entity\Tva")
      * @ORM\JoinColumn(nullable=false)
      */
     private $tva;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Ecommerce\EcommerceBundle\Entity\Categories", cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="Ecommerce\EcommerceBundle\Entity\Categories")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;

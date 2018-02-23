@@ -1,0 +1,53 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block body %}
+    <h1>Liste de mes adresses</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Telephone</th>
+                <th>Adresse</th>
+                <th>Cp</th>
+                <th>Pays</th>
+                <th>Ville</th>
+                <th>Complement</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utilisateursAdresses in utilisateursAdresses %}
+            <tr>
+                <td><a href="{{ path('utilisateursadresses_show', { 'id': utilisateursAdresses.id }) }}">{{ utilisateursAdresses.id }}</a></td>
+                <td>{{ utilisateursAdresses.nom }}</td>
+                <td>{{ utilisateursAdresses.prenom }}</td>
+                <td>{{ utilisateursAdresses.telephone }}</td>
+                <td>{{ utilisateursAdresses.adresse }}</td>
+                <td>{{ utilisateursAdresses.cp }}</td>
+                <td>{{ utilisateursAdresses.pays }}</td>
+                <td>{{ utilisateursAdresses.ville }}</td>
+                <td>{{ utilisateursAdresses.complement }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('utilisateursadresses_show', { 'id': utilisateursAdresses.id }) }}">Voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('utilisateursadresses_edit', { 'id': utilisateursAdresses.id }) }}">Editer</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('utilisateursadresses_new') }}">Ajouter une adresse</a>
+        </li>
+    </ul>
+{% endblock %}
