@@ -31,11 +31,13 @@ class produitsController extends Controller
     {
         $session = $request->getSession();
         $em = $this->getDoctrine()->getManager();
-        $produits = $em->getRepository('EcommerceBundle:Produits')->findBy(array('disponible'=> 1));
+        $findproduits = $em->getRepository('EcommerceBundle:Produits')->findBy(array('disponible'=> 1));
         if ($session->has('panier'))
             $panier = $session->get('panier');
         else
             $panier = false;
+
+        $produits  = $this->get('knp_paginator')->paginate($findproduits,$request->query->getInt('page', 1), 3);
 
         return $this->render('EcommerceBundle:Default/produits/layout:produits.html.twig',array('produits' => $produits,'panier'=>$panier));
     }
