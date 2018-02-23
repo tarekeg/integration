@@ -144,10 +144,10 @@ p {
   padding: 10px 15px;
   border-radius: 0;
 }
-.btn:hover,
+/*.btn:hover,
 .btn:focus {
   color: #136d82;
-}
+}*/
 input,
 textarea {
   font-size: 14px;
