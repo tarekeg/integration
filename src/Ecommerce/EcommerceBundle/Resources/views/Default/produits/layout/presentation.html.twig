@@ -2,7 +2,7 @@
 {% block title %}{{  produit.nom }}{% endblock %}
 {% block description %}{ produit.description }}{% endblock %}
 {% block content_header %}
-    <div class="page-top clearfix">
+    <div class="page-top clearfix animated fadeInRight ae-animation-fadeInRight">
         <!--page main heading-->
         <div class="container">
             <h1 class="entry-title">{{  produit.nom }}</h1>
@@ -11,14 +11,15 @@
 {% endblock %}
     
 {% block body %}
+    
     <div class="container">
         <div class="blog-page-single space-top clearfix">
             <div itemscope itemtype="http://schema.org/Product" class="post-338 product type-product status-publish has-post-thumbnail product_cat-posters sale shipping-taxable purchasable product-type-simple product-cat-posters instock">
-                <div class="images">
+                <div class="images animated fadeInLeft ae-animation-fadeInLeft">
                     <a href="{{ produit.image.path }}" itemprop="image" class="woocommerce-main-image zoom" title="{{ produit.nom }}" data-rel="prettyPhoto[product-gallery]">
                         <img src="{{ produit.image.path }}" alt="{{ produit.nom }}"></a>
                 </div>
-                <div class="summary entry-summary entry-content">
+                <div class="summary entry-summary entry-content animated fadeInRight ae-animation-fadeInRight">
                     <h1 itemprop="name" class="product_title entry-title">{{ produit.nom }}</h1>
                     <div class="woocommerce-product-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
                         <div class="star-rating" title="Rated 4 out of 5">
@@ -49,12 +50,12 @@
                             <button type="submit" class="single_add_to_cart_button button alt">Ajouter au panier</button> 
                         </form>     
                     {% else %}
-                        <div>
+                        <div style="margin-bottom: 10px">
                             <a href="{{ path('panier')  }}" class="single_add_to_cart_button button alt">Le produit a deja été ajouté</a>
                         </div>
                     {% endif %}
                     <div class="product_meta">        
-                        <span class="posted_in">Category: <a href="#" rel="tag">Posters</a></span>             
+                        <span class="posted_in">Categorie(s): <a href="#" rel="tag">{{produit.categorie.nom}}</a></span>             
                     </div>
                 </div><!-- .summary -->
                 <meta itemprop="url" content="#" />
