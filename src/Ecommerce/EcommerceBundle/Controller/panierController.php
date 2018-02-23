@@ -4,6 +4,7 @@ namespace Ecommerce\EcommerceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Ecommerce\EcommerceBundle\Entity\UtilisateursAdresses;
 use Ecommerce\EcommerceBundle\Form\UtilisateursAdressesType;
@@ -147,4 +148,32 @@ class panierController extends Controller
             'facturation' => $facturation,
             'panier' => $session->get('panier')));
     }
+    public function pdfAction (Request $request)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $session = $request->getSession();
+        $adresse = $session->get('adresse');
+
+        $produits = $em->getRepository('EcommerceBundle:Produits')->findArray(array_keys($session->get('panier')));
+        $livraison = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($adresse['livraison']);
+        $facturation = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($adresse['facturation']);
+
+
+        $html = $this->renderView('@Ecommerce/Default/panier/layout/pdf.html.twig', array(
+            'produits' => $produits,
+            'livraison' => $livraison,
+            'facturation' => $facturation,
+            'panier' => $session->get('panier')));
+
+        return new Response(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'attachment; filename="file.pdf"'
+            )
+        );
+    }
+
 }
