@@ -1,24 +1,30 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<div class="row">
-
-    <div class="span3">
-        {% include 'UsersBundle:Default/modulesUsed:utilisateursConnectes.html.twig' %}
+    
+    
+<div class="span3">
+    {% include 'UsersBundle:Default/modulesUsed:utilisateursConnectes.html.twig' %}
+</div>
+    
+    
+<div class="page-top clearfix">
+    <!--page main heading-->
+    <div class="container">
+        <h1 class="entry-title">Modifier mes informations</h1>
     </div>
-
-    <div class="span9">
-        <h2>Mes informations</h2>
-        <div id="collapseOne" class="accordion-body collapse in">
-            <div class="accordion-inner">
-
-                <div class="span4">
-                    <h4>Modifier mes informations</h4>
-                    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-                    {{ form_widget(form) }}
-                    <div>
-                        <input class="btn btn-primary" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
-                    </div>
-                    {{ form_end(form) }}
+</div>
+    
+<div class="contact-page clearfix animated fadeInLeft ae-animation-fadeInLeft">
+    <div class="container">
+        <div class="clearfix"></div>
+        <!--contact form-->
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-6 ">
+                {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit contact-form' } }) }}
+                {{ form_widget(form) }}
+                <div>
+                    <input class="btn btn-primary" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
                 </div>
+                {{ form_end(form) }}
             </div>
         </div>
     </div>
