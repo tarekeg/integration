@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Ecommerce\EcommerceBundle\Entity\UtilisateursAdresses;
 use Ecommerce\EcommerceBundle\Form\UtilisateursAdressesType;
+use Users\UsersBundle\Entity\Users;
 
 class panierController extends Controller
 {
@@ -89,9 +90,11 @@ class panierController extends Controller
 
     {
 
+
         $utilisateur = $this->container->get('security.token_storage')->getToken()->getUser();
         $entity = new UtilisateursAdresses();
         $form = $this->createForm('Ecommerce\EcommerceBundle\Form\UtilisateursAdressesType',$entity);
+
 
          if($request->isMethod('Post'))
         {
@@ -137,11 +140,25 @@ class panierController extends Controller
         $em = $this->getDoctrine()->getManager();
         $session = $request->getSession();
         $adresse = $session->get('adresse');
+        $user = $this->getUser();
+
+        $this->container->get('security.token_storage')->getToken()->getUser();
+        $useremail = $user->getEmailCanonical();
 
 
         $produits = $em->getRepository('EcommerceBundle:Produits')->findArray(array_keys($session->get('panier')));
         $livraison = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($adresse['livraison']);
         $facturation = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($adresse['facturation']);
+
+        $message = (new \Swift_Message())
+            ->setSubject('Panier Validé')
+            ->setFrom('tarouka1989@gmail.com')
+            ->setTo($useremail)
+            ->setCharset('utf-8')
+            ->setContentType('text/html')
+            ->setBody($this->renderView('@Ecommerce/Default/Swift/validationpanier.html.twig'));
+
+        $this->get('mailer')->send($message);
 
         return $this->render('EcommerceBundle:Default:panier/layout/validation.html.twig', array('produits' => $produits,
             'livraison' => $livraison,
