@@ -1,19 +1,29 @@
-<div class="well">
-    <ul class="nav nav-list">
-        <li>
-            <a href="{{ path('fos_user_profile_show') }}">Mes informations</a>
-        </li>
-        <li>
-            <a href="{{ path('fos_user_profile_edit') }}">Editer mes informations</a>
-        </li>
-        <li>
-            <a href="{{ path('fos_user_change_password') }}">Changer mot de passe</a>
-        </li>
-        <li>
-            <a href="{{ path('utilisateursadresses_index') }}">Mes adresses</a>
-        </li>
-        <li>
-            <a href={{ path('fos_user_security_logout') }}#">Deconnexion</a>
-        </li>
-    </ul>
-</div>
+<ul class="nav navbar-nav navbar-right nav-user-log">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><b>{{ app.user.username }} </b> <span class="caret"></span></a>
+        <ul id="login-dp" class="dropdown-menu user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+            <li>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-list">
+                            <li>
+                                <a href="{{ path('fos_user_profile_show') }}">Mes informations</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('fos_user_profile_edit') }}">Editer mes informations</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('fos_user_change_password') }}">Changer mot de passe</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('utilisateursadresses_index') }}">Mes adresses</a>
+                            </li>
+                            <li>
+                                <a href={{ path('fos_user_security_logout') }}#">Deconnexion</a>
+                            </li>
+                        </ul>   
+                    </div>
+            </li>
+        </ul>
+    </li>
+</ul>
