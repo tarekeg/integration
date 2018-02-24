@@ -18,8 +18,8 @@
                 <td>{{ page.titre }}</td>
 
                 <td>
-                            <a href="{{ path('adminPages_show', { 'id': page.id }) }}"><i class="icon-book"></i></a>
-                            <a href="{{ path('adminPages_edit', { 'id': page.id }) }}"><i class="icon-edit"></i></a>
+                            <a href="{{ path('adminPages_show', { 'id': page.id }) }}"><i class="icon-book"></i>lire</a>
+                            <a href="{{ path('adminPages_edit', { 'id': page.id }) }}"><i class="icon-edit"></i>editer</a>
                 </td>
             </tr>
         {% endfor %}

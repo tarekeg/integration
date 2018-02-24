@@ -31,7 +31,7 @@ class produitsController extends Controller
     {
         $session = $request->getSession();
         $em = $this->getDoctrine()->getManager();
-        $findproduits = $em->getRepository('EcommerceBundle:Produits')->findBy(array('disponible'=> 1));
+        $findproduits = $em->getRepository('EcommerceBundle:Produits')->findAll();
         if ($session->has('panier'))
             $panier = $session->get('panier');
         else

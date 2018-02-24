@@ -145,6 +145,7 @@ class panierController extends Controller
         $this->container->get('security.token_storage')->getToken()->getUser();
         $useremail = $user->getEmailCanonical();
 
+        $nom = $user->getUsername();
 
         $produits = $em->getRepository('EcommerceBundle:Produits')->findArray(array_keys($session->get('panier')));
         $livraison = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($adresse['livraison']);
@@ -152,11 +153,11 @@ class panierController extends Controller
 
         $message = (new \Swift_Message())
             ->setSubject('Panier Validé')
-            ->setFrom('tarouka1989@gmail.com')
+            ->setFrom('tarek.elghoul@esprit.com')
             ->setTo($useremail)
             ->setCharset('utf-8')
             ->setContentType('text/html')
-            ->setBody($this->renderView('@Ecommerce/Default/Swift/validationpanier.html.twig'));
+            ->setBody($this->renderView('@Ecommerce/Default/Swift/validationpanier.html.twig',array('utilisateur' => $nom)));
 
         $this->get('mailer')->send($message);
 
