@@ -45,7 +45,7 @@ class panierController extends Controller
         $session->set('panier',$panier);
 
 
-        return $this->redirect($this->generateUrl('panier'));
+        return $this->redirectToRoute('panier');
     }
     public function supprimerAction(Request $request,$id)
     {

@@ -17,7 +17,7 @@ class UtilisateursAdressesController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $utilisateursAdresses = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->findAll();
+        $utilisateursAdresses = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->findBy(array('utilisateur'=>$this->getUser()));
 
         return $this->render('@Ecommerce/Default/utilisateursadresses/index.html.twig', array(
             'utilisateursAdresses' => $utilisateursAdresses,
