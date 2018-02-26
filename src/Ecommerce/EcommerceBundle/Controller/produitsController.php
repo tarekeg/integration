@@ -16,9 +16,6 @@ class produitsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $findproduits = $em->getRepository('EcommerceBundle:Produits')->ByCategorie($categorie);
-
-        $categorie = $em->getRepository('EcommerceBundle:Categories')->find($categorie);
-        if (!$categorie) throw $this->createNotFoundException('La page n\'existe pas.');
         $produits  = $this->get('knp_paginator')->paginate($findproduits,$request->query->getInt('page', 1), 3);
 
 
@@ -31,7 +28,7 @@ class produitsController extends Controller
     {
         $session = $request->getSession();
         $em = $this->getDoctrine()->getManager();
-        $findproduits = $em->getRepository('EcommerceBundle:Produits')->findBy(array('disponible'=> 1));
+        $findproduits = $em->getRepository('EcommerceBundle:Produits')->findAll();
         if ($session->has('panier'))
             $panier = $session->get('panier');
         else

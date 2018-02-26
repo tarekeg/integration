@@ -6,9 +6,6 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div>
-                {% include ':moduleUsed:navigationAdmin.html.twig' %}
-            </div>
 
             <div class="span9">
                 {% for flashMessage in app.session.flashbag.get('success') %}
