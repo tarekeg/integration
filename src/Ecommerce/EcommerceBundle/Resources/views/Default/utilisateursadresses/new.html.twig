@@ -6,11 +6,10 @@
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
+    <a href="{{ path('utilisateursadresses_index') }}" class="button alt pull-right">Retour a la liste</a>
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('utilisateursadresses_index') }}">Retour a la liste</a>
-        </li>
-    </ul>
+
+
+
 {% endblock %}

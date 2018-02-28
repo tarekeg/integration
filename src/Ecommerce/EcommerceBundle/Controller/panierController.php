@@ -5,10 +5,8 @@ namespace Ecommerce\EcommerceBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Ecommerce\EcommerceBundle\Entity\UtilisateursAdresses;
-use Ecommerce\EcommerceBundle\Form\UtilisateursAdressesType;
-use Users\UsersBundle\Entity\Users;
+
 
 class panierController extends Controller
 {
@@ -89,12 +87,9 @@ class panierController extends Controller
     public function livraisonAction(Request $request)
 
     {
-
-
         $utilisateur = $this->container->get('security.token_storage')->getToken()->getUser();
         $entity = new UtilisateursAdresses();
         $form = $this->createForm('Ecommerce\EcommerceBundle\Form\UtilisateursAdressesType',$entity);
-
 
          if($request->isMethod('Post'))
         {
@@ -141,8 +136,6 @@ class panierController extends Controller
         $session = $request->getSession();
         $adresse = $session->get('adresse');
         $user = $this->getUser();
-
-        $this->container->get('security.token_storage')->getToken()->getUser();
         $useremail = $user->getEmailCanonical();
 
         $nom = $user->getUsername();

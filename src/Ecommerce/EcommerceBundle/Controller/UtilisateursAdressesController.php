@@ -27,12 +27,15 @@ class UtilisateursAdressesController extends Controller
 
     public function newAction(Request $request)
     {
+        $utilisateur = $this->container->get('security.token_storage')->getToken()->getUser();
         $utilisateursAdresses = new UtilisateursAdresses();
         $form = $this->createForm('Ecommerce\EcommerceBundle\Form\UtilisateursAdressesType', $utilisateursAdresses);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
+            $utilisateursAdresses->setUtilisateur($utilisateur);
             $em->persist($utilisateursAdresses);
             $em->flush();
 
@@ -97,7 +100,7 @@ class UtilisateursAdressesController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('utilisateursadresseses_index');
+        return $this->redirectToRoute('utilisateursadresses_index');
     }
 
     /**

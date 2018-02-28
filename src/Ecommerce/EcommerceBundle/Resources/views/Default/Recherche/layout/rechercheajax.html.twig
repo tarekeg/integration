@@ -13,7 +13,6 @@
             $.ajax({
                 url:"{{ path('searchajax') }}",
                 type: "POST",
-                data:{'nom':input },
                 success:function (data) {
                     var data = $('<div />').html(data);
                     var list = data.find('.product-name').clone();
