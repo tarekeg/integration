@@ -17,11 +17,9 @@
             <ul class="nav ace-nav">
                 <li class="grey dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="{{ asset('assets/admin/images/avatars/user.jpg') }}" alt="Jason's Photo" />
                         <span class="user-info">
-									<small>Bonjour,</small>
-									Test
-								</span>
+                            <small>{{ app.user.username }}</small>
+                        </span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
                     </a>
