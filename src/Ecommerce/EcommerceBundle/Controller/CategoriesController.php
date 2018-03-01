@@ -89,7 +89,7 @@ class CategoriesController extends Controller
             return $this->redirectToRoute('Admincategories_edit', array('id' => $categories->getId()));
         }
 
-        return $this->render('categories/edit.html.twig', array(
+        return $this->render('@Ecommerce/Administration/categories/edit.html.twig', array(
             'category' => $categories,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
