@@ -1,0 +1,196 @@
+ .navbar {
+    background: #404040;
+}
+ .ace-thumbnails>li {
+     margin-right: 20px;
+     margin-bottom: 20px;
+     border: 1px solid #C5D0DC;
+ }
+
+ .visual-block {
+     display: block;
+     width: 200px;
+     height: 200px;
+ }
+
+ .visual-block img {
+     width: 200px;
+     height: 200px;
+ }
+
+ .event-img .img video {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+ }
+
+ /* ==========================================================================
+ Event -- visuals
+========================================================================== */
+
+ .ace-thumbnails>li.event-img {
+     width: 240px;
+     float: none;
+     display: inline-block;
+     vertical-align: top;
+ }
+ .event-img .inner {
+     width: 100%;
+     height: 195px;
+     position: relative;
+ }
+ .event-img .img {
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+     position: relative;
+ }
+ .event-img .img img {
+     position: absolute;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     margin: auto;
+     max-width: 100%;
+     max-height: 100%
+ }
+ .event-img .action {
+     position: absolute;
+     left: 0;
+     right: 0;
+     top: 50%;
+     transform: translateY(-50%);
+     vertical-align: middle;
+     text-align: center;
+ }
+
+ .event-img .action a {
+     display: inline-block;
+     width: 30px;
+     height: 30px;
+     line-height: 30px;
+     text-align: center;
+     vertical-align: middle;
+     font-size: 12px;
+     border-radius: 50%;
+     border: 1px solid #000;
+     background: #fff;
+     margin: 0px 3px;
+     position: relative;
+     color: #478FCA;
+ }
+
+ .black.w-box-footer {
+     background: #F3F3F3;
+     text-align: left;
+     color: #333333;
+     padding: 5px;
+ }
+
+ .loader {
+     border: 4px solid #f3f3f3;
+     border-top: 4px solid #3498db;
+     border-radius: 50%;
+     width: 34px;
+     height: 34px;
+     animation: spin 0.8s linear infinite;
+     display: block;
+     position: absolute;
+     top: -3px;
+     left: -3px;
+ }
+
+ .simple-loader {
+     border: 2px solid #000;
+     border-top: 2px solid #dedede;
+     border-radius: 50%;
+     width: 20px;
+     height: 20px;
+     animation: spin 0.8s linear infinite;
+     display: inline-block;
+     vertical-align: middle;
+
+ }
+ .btn .simple-loader {
+     margin-right: 4px;
+     margin-bottom: 1px;
+     display: none;
+ }
+/* ==========================================================================
+BO...............BO
+========================================================================== */
+.profile-list{
+    border-bottom: 1px dotted #DCEBF7;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.profile-list:last-child{
+    border-bottom: none;
+}
+ @keyframes spin {
+     0% { transform: rotate(0deg); }
+     100% { transform: rotate(360deg); }
+ }
+
+
+ .fo-table{
+
+ }
+ .fo-table thead{
+     border-bottom: 1px solid;
+ }
+ .table-filters{
+     margin-bottom: 40px;
+     background-color: #f9f9f9;
+     padding: 15px 10px;
+ }
+ .user-profile-round{
+     height: 30px;
+     width: 30px;
+     color: #fff;
+     display: block;
+     text-align: center;
+     border-radius: 50%;
+     line-height: 34px;
+ }
+ .fo-table .img-square{
+     height: 70px;
+     width: 70px;
+     display: inline-block;
+     vertical-align: top;
+     margin-right: 5px;
+ }
+ .fo-table .img-square.img-contain img {
+     object-fit: contain;
+     object-position: center;
+ }
+ .fo-table .img-square img{
+     width: 100%;
+     display: block;
+     object-fit: cover;
+     object-position: top;
+     height: 100%;
+ }
+ .fo-table .user-info{
+     max-width: 100%;
+     padding-left: 10px;
+     padding-top: 5px;
+     display: inline-block;
+ }
+ .fo-table .user-info span{
+     display: block;
+ }
+ .fo-table .user-col .user-type{
+     color: #999;
+ }
+ .fo-table .btn-group{
+     display: flex;
+     float: right;
+ }
+ .fo-table tbody tr:nth-child(even) {
+     background: #f9f9f9
+ }
+ .fo-table .align-middle{
+     vertical-align: middle;
+ }

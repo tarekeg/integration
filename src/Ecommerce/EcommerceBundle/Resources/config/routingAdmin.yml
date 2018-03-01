@@ -1,5 +1,5 @@
 adminProduits_index:
-    path:     /produits
+    path:     /
     defaults: { _controller: "EcommerceBundle:ProduitsAdmin:index" }
     methods:  GET
 
