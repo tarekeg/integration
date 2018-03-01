@@ -124,7 +124,7 @@ class CategoriesController extends Controller
     private function createDeleteForm(Categories $category)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('categories_delete', array('id' => $category->getId())))
+            ->setAction($this->generateUrl('Admincategories_delete', array('id' => $category->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

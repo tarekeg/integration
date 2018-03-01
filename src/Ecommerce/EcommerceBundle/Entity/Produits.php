@@ -22,7 +22,7 @@ class Produits
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Ecommerce\EcommerceBundle\Entity\Media")
+     * @ORM\ManyToOne(targetEntity="Ecommerce\EcommerceBundle\Entity\Media",cascade={"persist", "remove" })
      * @ORM\JoinColumn(nullable=false)
      */
     private $image;
